@@ -1,0 +1,19 @@
+{
+  "name": "deepdive",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dhboys/deepdive.git"
+  },
+  "author": "dhboys",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dhboys/deepdive/issues"
+  },
+  "homepage": "https://github.com/dhboys/deepdive#readme"
+}
