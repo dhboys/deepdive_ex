@@ -17,35 +17,61 @@ test("키패드 누르기", () => {
 
     let answer = [];
 
+    // 거리 구하는 함수 만들기
+    const getDistance = (locatedNum, targetNum) => {
+    const keyPad = {
+    7: [3, 0], 8: [3, 1], 9: [3, 2],
+    4: [2, 0], 5: [2, 1], 6: [2, 2],
+    1: [1, 0], 2: [1, 1], 3: [1, 2],
+    '*': [0 ,0], 0: [0, 1], '#': [0, 2],
+    }
+
+    const nowPosition = keyPad[locatedNum];
+    const targetPosition = keyPad[targetNum];
+
+    return Math.abs(targetPosition[0] - nowPosition[0] + Math.abs(targetPosition[1] - nowPosition[1]));
+    }
+
     numbers.map((v) => {
-        if (v === 7 || 4 || 1) {
+        if (v === 1 || v === 4 || v === 7) {
             answer.push('L');
             leftFinger = v;
-        }
-
-        if (v === 9 || 6 || 3) {
+        } else if (v === 9 || v === 6 || v === 3) {
             answer.push('R');
             rightFinger = v;
-        }
+        } else if (v === 0 || v === 8 || v === 5 || v === 2) {
+            const leftHandDistance = getDistance(leftFinger, v);
+            const rightHandDistance = getDistance(rightFinger, v);
 
-        if (v === 0 || 8 || 5 || 2) {
-            if (hand == 'left' && Math.abs(leftFinger - v) <= Math.abs(rightFinger - v)) {
-                answer.push('L');
-                leftFinger = v;
-            } else {
-                answer.push('R');
+            if (leftHandDistance === rightHandDistance) {
+                if (hand === 'right') {
+                    answer.push('R');
+                    rightFinger = v;
+                    return;
+                }
+
+                if (hand === 'left') {
+                    answer.push('L');
+                    leftFinger = v;
+                    return;
+                }
+            }
+
+            if (leftHandDistance > rightHandDistance) {
+                answer.push('R')
                 rightFinger = v;
             }
 
-            if (hand == 'right' && Math.abs(rightFinger - v) <= Math.abs(leftFinger - v)) {
-                answer.push('R');
-                rightFinger = v;
-            } else {
-                answer.push('L');
+            if (leftHandDistance < rightHandDistance) {
+                answer.push('L')
                 leftFinger = v;
             }
         }
+        // console.log('leftFinger', leftFinger);
+        // console.log('rightFinger', rightFinger);
     })
 
+    // 문자열로 만들기
+    answer.join("");
     console.log(answer);
 });
