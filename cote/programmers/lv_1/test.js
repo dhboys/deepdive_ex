@@ -1,34 +1,20 @@
-// map, reduce, transpose, pop 함수에 대해 공부하기..
-
-test("인형 뽑기", () => {
-    const board = [[0,0,0,0,0],[0,0,1,0,3],[0,2,5,0,1],[4,2,4,4,2],[3,5,1,3,1]];
-    const moves = [1,5,3,5,1,2,1,4]
-
-    const transpose = (matrix) => {
-        matrix.reduce(
-            (result, row) => row.map((_, i) => [...(result[i] || []), row[i]]),
-            []
-        )};
-    
-    const solution = (board, moves) => {
-        const stacks = transpose(board).map(row =>
-            row.reverse().filter(el => el !== 0)
-        );
-        const basket = [];
-        let result = 0;
-    
-        for (const move of moves) {
-            const pop = stacks[move - 1].pop();
-            if (!pop) continue;
-            if (pop === basket[basket.length - 1]) {
-                basket.pop();
-                result += 2;
-                continue;
-            }
-            basket.push(pop);
+test("없는 숫자 더하기", () => {
+    const numbers = [1,2,3,4,6,7,8,0];
+    const solution = (numbers) => {
+        const fullNum = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+        let answer = 0;
+        for (var i = 0; i < 10; i++) {
+            const temNum = numbers.filter((v) => v === i)[0];
+            temNum !== undefined ? answer += temNum : null;
+            // console.log('temNum', temNum);
+            // console.log('answer', answer);
         }
-    
-        return result;
-    };
-    console.log('solution', solution());
+        console.log('45- answer', 45 - answer);
+    }
+    console.log(solution(numbers));
+
+    // 다른 사람 풀이
+    function solution(numbers) {
+        return 45 - numbers.reduce((cur, acc) => cur + acc, 0);
+    }
 });
