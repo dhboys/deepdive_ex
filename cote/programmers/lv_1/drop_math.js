@@ -6,7 +6,7 @@ test("모의고사", () => {
   const second_student = [2, 1, 2, 3, 2, 4, 2, 5];
   const third_student = [3, 3, 1, 1, 2, 2, 4, 4, 5, 5];
 
-  // 정답
+  // 정답 -> filter와 나머지 연산자 사용
   const first_student_count = answers.filter(
     (a, i) => a === first_student[i % first_student.length]
   ).length;
@@ -21,5 +21,4 @@ test("모의고사", () => {
     second_student_count,
     third_student_count
   );
-  console.log("max", max);
 });
