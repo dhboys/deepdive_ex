@@ -20,4 +20,10 @@ test("포켓몬", () => {
     Object.fromEntries(nums.map((v) => [v, null]))
   );
   console.log("entriesResult", entriesResult);
+
+  // 정답
+  const pickNum = nums.length / 2;
+  const arrangedNum = [...new Set(nums)].length;
+  const result = pickNum <= arrangedNum ? pickNum : arrangedNum;
+  return result;
 });
