@@ -31,8 +31,6 @@ test("실패율 구하기", () => {
 
   const setReturnArray = [...new Set(returnArray)];
 
-  // console.log("failureRatioObj", failureRatioObj);
-  // console.log("valueArray", valueArray);
   console.log("setReturnArray", setReturnArray);
 
   // 다른 사람의 풀이
