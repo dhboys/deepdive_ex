@@ -32,7 +32,7 @@ test("오픈 채팅방", () => {
       userIdMap[action.split(" ")[1]] = action.split(" ")[2];
       result.push([action.split(" ")[1], "Enter"]);
     } else if (action.split(" ")[0] === "Leave") {
-      userIdMap[action.split(" ")[1]] = action.split(" ")[2];
+    //   userIdMap[action.split(" ")[1]] = action.split(" ")[2];
       result.push([action.split(" ")[1], "Leave"]);
     } else if (action.split(" ")[0] === "Change") {
       userIdMap[action.split(" ")[1]] = action.split(" ")[2];
@@ -54,6 +54,4 @@ test("오픈 채팅방", () => {
     .map((action) => {
       return action[0] + action[1];
     });
-
-  // Leave는 uid만 받는다는 사실 상기 필요
 });
