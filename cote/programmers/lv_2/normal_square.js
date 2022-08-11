@@ -9,6 +9,7 @@ test("멀쩡한 사각형", () => {
     } else {
       
     // 직사각형이면 작은 변의 길이 * 2 만큼 못 씀
+    // 한쪽이 홀수이면 
       const small = W > H ? H : W
       const possibleCnt = normalCnt - (small * 2)
     }
