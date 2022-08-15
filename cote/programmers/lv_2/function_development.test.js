@@ -1,6 +1,6 @@
 test("기능 개발", () => {
-    const progresses = [95, 90, 99, 99, 80, 99]
-    const speeds = [1, 1, 1, 1, 1, 1]
+    const progresses = [20, 99, 93, 30, 55, 10]
+    const speeds = [5, 10, 1, 1, 30, 5]
     let finishDay = []
 
     for (let i = 0; i < progresses.length; i++) {
