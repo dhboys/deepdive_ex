@@ -1,27 +1,23 @@
 test("구명 보트", () => {
-  const people = [70, 50, 80, 50];
-  const limit = 100;
+  const people = [70, 50, 80, 50, 90, 40];
+  const limit = 240;
   let sortedPeople = people.sort((a, b) => a - b);
-  let count = 0;
-
-  for (var i = 0; i < sortedPeople.length; i++) {
-    for (var j = 0; j < sortedPeople.length; j++) {
-      if (sortedPeople[i] + sortedPeople[j] === 100) {
-        sortedPeople[i] = 1000;
-        sortedPeople[j] = 1000;
-        count++;
-        continue;
-      } else if (sortedPeople[i] + sortedPeople[j] < 100) {
-        sortedPeople[i] = 1000;
-        sortedPeople[j] = 1000;
-        count++;
-        continue;
-      } else {
-        count++;
-        continue;
-      }
+  let temp = 0;
+  let result = 0;
+  while (temp <= limit) {
+    let count = 0;
+    for (var i = 0; i < sortedPeople.length; i++) {
+      temp += sortedPeople[i];
+      count++;
+      console.log("몇 번", i);
     }
+    temp === 0;
+    for (var j = 0; j < count; j++) {
+      sortedPeople.shift();
+    }
+    result++;
+    console.log("sortedPeople", sortedPeople);
   }
-  console.log("sortedPeople", sortedPeople);
-  console.log("count", count);
+
+  console.log("result", result);
 });
