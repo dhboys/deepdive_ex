@@ -33,5 +33,5 @@ test("카펫", () => {
       runTime++;
     }
   });
-  console.log("runTime", runTime);
+  // console.log("runTime", runTime);
 });
