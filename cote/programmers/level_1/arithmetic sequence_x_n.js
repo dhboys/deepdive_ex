@@ -6,7 +6,6 @@ test("x만큼 간격이 있는 n개의 숫자", () => {
   for (let i = 1; i <= n; i++) {
     answer.push(x * i);
   }
-  console.log(answer);
 
   // 다른 사람의 풀이
   return Array(n)
